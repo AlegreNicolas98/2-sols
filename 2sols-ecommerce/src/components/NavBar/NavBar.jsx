@@ -6,13 +6,12 @@ const NavBar =() => {
   return (
     <header class="header">
     <nav class="nav">
-        <div class="title animate__animated animate__flash">2Sols</div>
+        <div class="title animate__animated animate__flash">3sols</div>
         <ul class="menu visible">
                 <li><a href="./index.html">Inicio</a></li>
-                <li><a href="./pages/nosotros.html">Nosotros</a></li>
-                <li><a href="./pages/tucasa.html">Tu Casa</a></li>
-                <li><a href="./pages/sueñoscumplidos.html">Sueños Cumplidos</a></li>
-                <li><a href="./pages/sucursales.html">Sucursales</a></li>
+                <li><a href="./pages/nosotros.html">Servicios</a></li>
+                <li><a href="./pages/tucasa.html">Productos</a></li>
+                <li><a href="./pages/sucursales.html">Sucursal</a></li>
                 <li><a href="./pages/contacto.html">Contacto</a></li>
             </ul>
             <CartWidget/>
