@@ -11,7 +11,6 @@ const NavBar =() => {
                 <li><a href="./index.html">Inicio</a></li>
                 <li><a href="./pages/nosotros.html">Servicios</a></li>
                 <li><a href="./pages/tucasa.html">Productos</a></li>
-                <li><a href="./pages/sucursales.html">Sucursal</a></li>
                 <li><a href="./pages/contacto.html">Contacto</a></li>
             </ul>
             <CartWidget/>

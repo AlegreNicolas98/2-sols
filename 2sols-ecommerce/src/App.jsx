@@ -9,7 +9,8 @@ function App() {
   return (
     <div>
  <NavBar/>
-<ItemListContainer greeting={'Proximamente Productos Nuevos !!!'}/>
+ <h1 style={{"text-align":"center","background":"#282c34","color":"green","padding":"1rem"}}>Listado de Productos</h1>
+<ItemListContainer />
 </div>
   )
 }
