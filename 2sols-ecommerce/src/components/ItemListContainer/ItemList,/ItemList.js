@@ -1,18 +1,27 @@
 import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import alert from '../../Alert/alert'
 import { fetch } from '../Item/Item'
 
 const ItemList = () => {
     const [productos,setProducts] = useState([])
     const [loading,setLoading] = useState(true)
-        
+    const {categoriaId} = useParams ()
         
     useEffect(() => {
-        fetch
+        if (categoriaId) {
+            fetch
+            .then(resp => setProducts(resp.filter(prod => prod.categoria = categoriaId)))
+            .catch(err => console.log(err))
+            .finally(() => setLoading(false))
+        } else {
+            fetch
         .then(resp => setProducts(resp))
         .catch(err => console.log(err))
-        .finally(() => setLoading(false))
-      }, [])
+        .finally(() => setLoading(false))  
+        }
+      
+      }, [categoriaId])
       
   return (
     <div> {loading ? alert 
@@ -34,9 +43,11 @@ const ItemList = () => {
                                                                                
                               </div>
                               <div className="card-footer"> 
+                              <Link to={`/detail/${prod.id}`}>
                                       <button  className="btn btn-outline-success btn-block text-dark">
                                           Detalles del Repuesto
-                                      </button>                                               
+                                      </button>
+                               </Link>                                           
                               </div>
                           </div>                                                                                                                            
                       </div> 

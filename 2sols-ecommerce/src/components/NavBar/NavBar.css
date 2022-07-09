@@ -10,7 +10,7 @@
       justify-content: space-between;}
     .title{
       font-family: 'Alex Brush', cursive;
-      font-size: 5em;
+      font-size: 3.5em;
       color:rgb(50, 102, 1);
       text-decoration: none;}
   
@@ -25,14 +25,12 @@
       padding: 0 0.9rem;
       line-height: 5.625rem;
       width: max-content;
-    }
-    a{
       color: rgb(50, 102, 1);
       text-decoration: none;
       font-family: 'Times New Roman', Times, serif;
       border-radius: 5px;
-      padding: 0.3rem;}
-    a:hover{
+    }
+    li:hover{
       background-color: #0F1626;
       color: #D5D5D5;
       transition: ease-out 0.5s; }
