@@ -1,58 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import alert from '../../Alert/alert'
-import { fetch } from '../Item/Item'
+import { Container } from 'react-bootstrap'
+import Item from '../Item/Item'
 
-const ItemList = () => {
-    const [productos,setProducts] = useState([])
-    const [loading,setLoading] = useState(true)
-    const {categoriaId} = useParams ()
-        
-    useEffect(() => {
-        if (categoriaId) {
-            fetch
-            .then(resp => setProducts(resp.filter(prod => prod.categoria = categoriaId)))
-            .catch(err => console.log(err))
-            .finally(() => setLoading(false))
-        } else {
-            fetch
-        .then(resp => setProducts(resp))
-        .catch(err => console.log(err))
-        .finally(() => setLoading(false))  
-        }
-      
-      }, [categoriaId])
-      
+function ItemList({producto}) {
   return (
-    <div> {loading ? alert 
-        :
-        productos.map(prod => <div     
-                          key={prod.id}          
-                          className='col-md-4 p-1'                                                           
-                      >                 
-                          <div className="card w-100 mt-5" >
-                              <div className="card-header">
-                                  {`${prod.nombre} - ${prod.categoria}`}
-                              </div>
-                              <div className="card-body">
-                                  <img src={prod.foto} alt='' className='w-50' />
-                                  <ul>
-                                    <li>Stock:{prod.stock}</li>
-                                    <li>Precio:{prod.precio}</li>
-                                  </ul>
-                                                                               
-                              </div>
-                              <div className="card-footer"> 
-                              <Link to={`/detail/${prod.id}`}>
-                                      <button  className="btn btn-outline-success btn-block text-dark">
-                                          Detalles del Repuesto
-                                      </button>
-                               </Link>                                           
-                              </div>
-                          </div>                                                                                                                            
-                      </div> 
-    )}
-    </div>
+    <Container className="d-flex justify-content-evenly mt-4 flex-wrap w-100">
+    {producto.map((element) => (
+      <Item products={element} />
+    ))}
+  </Container>
   )
 }
 
