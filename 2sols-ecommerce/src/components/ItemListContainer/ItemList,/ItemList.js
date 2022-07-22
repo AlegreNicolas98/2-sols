@@ -1,14 +1,14 @@
-import { Button } from 'bootstrap'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import alert from '../../Alert/alert'
-import { gFetch } from '../../BDatos'
+import { gFetch } from '../Item/Item'
+
 
 
 const ItemList = () => {
-    const [productos,setProducts] = useState([])
-    const [loading,setLoading] = useState(true)
-    const {categoriaId} = useParams ()
+    const [productos,setProducts] = useState([]);
+    const [loading,setLoading] = useState(true);
+    const {categoriaId} = useParams ();
+   
         
     useEffect(() => {
         if (categoriaId) {
@@ -26,7 +26,7 @@ const ItemList = () => {
       }, [categoriaId])
       
   return (
-    <div> {loading ? alert 
+    <div> {loading ?  <alert/>
         :
         productos.map(prod => <div     
                           key={prod.id}          

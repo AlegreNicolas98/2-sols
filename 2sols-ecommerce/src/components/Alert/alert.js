@@ -11,4 +11,4 @@ Swal.fire({
     showConfirmButton:false,
   })
 
-  export default alert
+ export default alert

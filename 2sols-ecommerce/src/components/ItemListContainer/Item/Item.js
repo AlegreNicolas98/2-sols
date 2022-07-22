@@ -8,7 +8,6 @@ let productos =
  {id:'7', categoria:'Suspension', nombre:'Brazo Suspencion Sup', precio:'$12000', stock:1, foto:'https://www.autoclasico.es/files/imgs/web/brazo-suspension-superior-ford-falcon-1963-1965-8009.jpg'},
 ];
 
-
 export const gFetch = new Promise ((resolve, reject) => {
     let condition = true
 

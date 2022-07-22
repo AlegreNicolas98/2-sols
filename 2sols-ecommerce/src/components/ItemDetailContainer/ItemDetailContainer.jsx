@@ -1,14 +1,17 @@
-
-import { useEffect } from "react";
+import { useEffect, } from "react";
 import { useState } from "react"
-import { useParams } from "react-router-dom";
-import {gFetch} from "../BDatos"
+import { Link, useParams } from "react-router-dom";
+import { ItemCount } from "../ItemCount";
+import {gFetch} from "../ItemListContainer/Item/Item";
+import {useContext} from "react";
+import { CartContext } from "../CartContext/CartContext";
 
-function ItemDetailContainer() {
+function ItemDetailContainer({}) {
   const [productos,setProducts] = useState([])
-    const [loading,setLoading] = useState(true)
-    const {id} = useParams ()
-        
+  const [loading,setLoading] = useState(true)
+  const {id} = useParams ()
+  const [cart, addItems,clear,isInCart,removeItem] = useContext (CartContext);
+  const [cantidad,setCantidad] = useState()    
     
   useEffect(() => {
     gFetch
@@ -19,6 +22,17 @@ function ItemDetailContainer() {
       .finally(() => setLoading(false));
   }, [id]);
  const {nombre,precio,stock,categoria,foto} = productos;
+
+ const funcionContador = (cantidad)=>{
+  console.log("El valor del contador es", cantidad);
+  setCantidad(cantidad)
+  const producto = {item:productos,quantity:cantidad}
+  addItems(producto);
+  clear (producto);
+  isInCart (producto);
+  removeItem(producto);
+ }
+
 
   return loading ? (
     <div className="text-center mt-4">
@@ -40,15 +54,12 @@ function ItemDetailContainer() {
             <h3>Cantidad de Stock :{stock}</h3>
           </div>
           <div className="text-end">
-            <button
-              className="css-button-sliding-to-left--sky text-decoration-none text-center" >
-              Comprar
-            </button>
+            {cantidad ? <Link to = "/cart"><button>Terminar Compra</button></Link>:<ItemCount stock={stock} initial={0} onAdd={funcionContador} />}
           </div>
         </div>
       </div>
     </div>
-  );
+  ); 
 }
 
 export default ItemDetailContainer

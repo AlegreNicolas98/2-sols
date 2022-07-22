@@ -1,18 +1,22 @@
+
 import {BrowserRouter, Routes,Route, Navigate} from 'react-router-dom'
 
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import Cart from './components/Cart/Cart';
+import { CarritoContext } from './components/CartContext/CartContext';
+import Titulo from './components/ItemListContainer/Titulo/Titulo';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Titulo from './components/ItemListContainer/Titulo/Titulo';
+
 
 
 function App() {
   return (
-<BrowserRouter>
+    <CarritoContext>
+<BrowserRouter> 
         <div>
           <NavBar/>
           <Titulo/>
@@ -25,8 +29,10 @@ function App() {
             <Route path='/cart' element={  <Cart/>  }/>
             <Route path='*' element={<Navigate to='/'/>}/>
           </Routes>
-         </div>
+         </div>    
 </BrowserRouter>
+</CarritoContext>
+
   )
 }
 
