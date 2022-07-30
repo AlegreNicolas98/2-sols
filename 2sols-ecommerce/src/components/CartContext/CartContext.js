@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createContext } from "react";
+
 
 export const CartContext = React.createContext();
 
@@ -21,6 +21,9 @@ export const CarritoContext = ({ children }) => {
   const removeItem = (id) => {
     setCart(cart.filter((item) => item.id !== id));
   };
+
+
+
   return (
     <CartContext.Provider value={[cart, setCart, addItems, removeItem, clear, isInCart]}>
       {children}

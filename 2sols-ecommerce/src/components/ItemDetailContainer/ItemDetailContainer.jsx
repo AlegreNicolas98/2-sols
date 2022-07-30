@@ -2,9 +2,10 @@ import { useEffect, } from "react";
 import { useState } from "react"
 import { Link, useParams } from "react-router-dom";
 import { ItemCount } from "../ItemCount";
-import {gFetch} from "../ItemListContainer/Item/Item";
 import {useContext} from "react";
 import { CartContext } from "../CartContext/CartContext";
+import {doc,getDoc,getFirestore} from 'firebase/firestore'
+import { gFetch } from "../ItemListContainer/Item/Item";
 
 function ItemDetailContainer({}) {
   const [productos,setProducts] = useState([])
@@ -14,13 +15,15 @@ function ItemDetailContainer({}) {
   const [cantidad,setCantidad] = useState()    
     
   useEffect(() => {
-    gFetch
-      .then((resp) =>
-        setProducts(resp.find((item) => item.id ===id))
-      )
-      .catch((rej) => console.log(rej))
-      .finally(() => setLoading(false));
-  }, [id]);
+    const db = getFirestore() 
+    const queryProduct = doc(db, 'items', id )
+    getDoc(queryProduct)
+    .then(resp => setProducts( { id: resp.id, ...resp.data() } ))
+    .catch( err => console.log(err) )
+    .finally(()=> setLoading(false))
+}, [id])
+
+
  const {nombre,precio,stock,categoria,foto} = productos;
 
  const funcionContador = (cantidad)=>{
@@ -54,7 +57,7 @@ function ItemDetailContainer({}) {
             <h3>Cantidad de Stock :{stock}</h3>
           </div>
           <div className="text-end">
-            {cantidad ? <Link to = "/cart"><button>Terminar Compra</button></Link>:<ItemCount stock={stock} initial={0} onAdd={funcionContador} />}
+            {cantidad ? <Link to = "/cart"><button>Terminar Compra</button></Link>:<ItemCount stock={stock} initial={1} onAdd={funcionContador} />}
           </div>
         </div>
       </div>
