@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
-import { gFetch } from '../Item/Item';
+
 
 
 
@@ -61,6 +61,7 @@ const ItemList = () => {
                       </div> 
     )}
     </div>
+    
   )
 }
 

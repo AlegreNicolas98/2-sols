@@ -5,13 +5,13 @@ import { ItemCount } from "../ItemCount";
 import {useContext} from "react";
 import { CartContext } from "../CartContext/CartContext";
 import {doc,getDoc,getFirestore} from 'firebase/firestore'
-import { gFetch } from "../ItemListContainer/Item/Item";
+
 
 function ItemDetailContainer({}) {
   const [productos,setProducts] = useState([])
   const [loading,setLoading] = useState(true)
   const {id} = useParams ()
-  const [cart, addItems,clear,isInCart,removeItem] = useContext (CartContext);
+  const [cart, addProduct,emptyCart,isInCart,eleminarProducto] = useContext (CartContext);
   const [cantidad,setCantidad] = useState()    
     
   useEffect(() => {
@@ -24,16 +24,17 @@ function ItemDetailContainer({}) {
 }, [id])
 
 
+
  const {nombre,precio,stock,categoria,foto} = productos;
 
  const funcionContador = (cantidad)=>{
   console.log("El valor del contador es", cantidad);
   setCantidad(cantidad)
   const producto = {item:productos,quantity:cantidad}
-  addItems(producto);
-  clear (producto);
+  addProduct(producto);
+  emptyCart(producto);
   isInCart (producto);
-  removeItem(producto);
+  eleminarProducto(producto);
  }
 
 
@@ -57,7 +58,8 @@ function ItemDetailContainer({}) {
             <h3>Cantidad de Stock :{stock}</h3>
           </div>
           <div className="text-end">
-            {cantidad ? <Link to = "/cart"><button>Terminar Compra</button></Link>:<ItemCount stock={stock} initial={1} onAdd={funcionContador} />}
+            {cantidad ? <Link to = "/cart"><button>Terminar Compra</button></Link>:<ItemCount stock={stock} initial={1} onAdd={funcionContador}/>}
+
           </div>
         </div>
       </div>
