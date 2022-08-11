@@ -1,0 +1,12 @@
+.section{
+  background-color: #7DCE13 ;
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem;
+  align-items: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  align-items: center;
+ color: #1B2430;
+ font-size: 0.9em;
+}

@@ -1,5 +1,5 @@
 .header {
-    background-color: #000000;
+    background-color: rgb(0, 0, 0);
     width: 100%;
     height: 100px;
     top: 0;
@@ -8,29 +8,30 @@
     .nav {
       display: flex;
       justify-content: space-between;}
-    .title{
-      font-family: 'Alex Brush', cursive;
+    .titulo{
+      font-family: monospace;
+      font-weight: 900;
       font-size: 3.5em;
-      color:rgb(50, 102, 1);
-      text-decoration: none;}
+      color:#7DCE13 ;
+      }
   
   .menu {
     display: flex;
     margin-right: 20px;
     list-style: none;
     cursor: pointer;}
-    
-    li {
+
+    .pag {
       font-size: 1.5em;
-      padding: 0 0.9rem;
+      padding: 0 0.5rem;
       line-height: 5.625rem;
       width: max-content;
-      color: rgb(50, 102, 1);
+      color: rgb(77, 71, 71);
       text-decoration: none;
       font-family: 'Times New Roman', Times, serif;
       border-radius: 5px;
     }
-    li:hover{
-      background-color: #0F1626;
-      color: #D5D5D5;
+    .pag:hover{
+      background-color: #7DCE13 ;
+      color: #ffffff;
       transition: ease-out 0.5s; }

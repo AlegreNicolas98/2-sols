@@ -4,19 +4,17 @@ import './NavBar.css'
 
 
 const NavBar =() => {
-
-
   return (
-    <header class="header">
-    <nav class="nav">
-      <NavLink to='/'>
-        <div class="title animate__animated animate__flash">3sols</div>
+    <header className="header">
+    <nav className="nav">
+      <NavLink className="titulo"to='/'>
+        <div>3sols</div>
         </NavLink>
         <ul class="menu visible">
-                <NavLink to='/'><li>Inicio</li></NavLink>
-                <NavLink to='/categoria/Motor'><li>Motor</li></NavLink>
-                <NavLink to='/categoria/Suspencion'><li>Suspencion</li></NavLink>
-                <NavLink to='/categoria/Eje'><li>Eje Delantero</li></NavLink>
+                <NavLink className='pag' to='/'><li>Inicio</li></NavLink>
+                <NavLink className='pag'  to='/categoria/Motor'><li>Motor</li></NavLink>
+                <NavLink className='pag'  to='/categoria/Suspencion'><li>Suspencion</li></NavLink>
+                <NavLink className='pag'  to='/categoria/Eje'><li>Eje Delantero</li></NavLink>
             </ul>
             <Link to='/cart'>
             <CartWidget/>
