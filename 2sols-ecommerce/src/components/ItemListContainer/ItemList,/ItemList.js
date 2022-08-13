@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
-import Spinner from '../Spinner/Spinner';
-import Spinners from '../Spinner/Spinner';
-import { gFetch } from '../Item/Item'
+
+import Spinners from '../Spinner/Spinner';  
 
 
 
@@ -15,19 +14,23 @@ const ItemList = () => {
    
         
     useEffect(() => {
+        const db = getFirestore()
         if (categoriaId) {
-            gFetch
-            .then(resp => setProducts(resp.filter(prod => prod.categoria === categoriaId)))
-            .catch(err => console.log(err))
-            .finally(() => setLoading(false))
-        } else {
-           gFetch
-        .then(resp => setProducts(resp))
-        .catch(err => console.log(err))
-        .finally(() => setLoading(false))  
+            const queryCollection = collection(db, 'items')
+            const queryCollectionFilter = query(queryCollection, where('categoria', '==', categoriaId))
+            getDocs(queryCollectionFilter)
+            .then(resp => setProducts( resp.docs.map(prod => ( { id: prod.id, ...prod.data() } ) ) ) )
+            .catch( err => console.log(err) )
+            .finally(()=> setLoading(false))             
+        } else {           
+            const queryCollection = collection(db, 'items')
+            getDocs(queryCollection)
+            .then(resp => setProducts( resp.docs.map(prod => ( { id: prod.id, ...prod.data() } ) ) ) )
+            .catch( err => console.log(err) )
+            .finally(()=> setLoading(false))         
         }
-      
-      }, [categoriaId])
+    }, [ categoriaId ])
+
 
 
       
@@ -36,8 +39,8 @@ const ItemList = () => {
         :
         productos.map(prod => <div     
                           key={prod.id}          
-                          className='col-md-4 p-1'                                                           
-                      >                 
+                          className='col-md-4 p-1'>
+                                             
                           <div className="card w-100 mt-5" >
                               <div className="card-header">
                                   {`${prod.nombre} - ${prod.categoria}`}
@@ -65,4 +68,4 @@ const ItemList = () => {
   )
 }
 
-export default ItemList
+export default ItemList 

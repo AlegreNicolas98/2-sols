@@ -1,0 +1,16 @@
+.imagen {
+    width: 4rem;
+    border-radius: 20px;
+  }
+  .icons {
+    display: inline-block;
+    cursor: pointer;
+    padding: 0.375rem 0.75rem;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .icons:last-child:hover {
+    color: red;
+    transition: 0.5s;
+    transform: scale(1.5);
+  }

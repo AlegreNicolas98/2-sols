@@ -53,7 +53,15 @@ const cantidadTotal = ()=>{
 }
 
   return (
-    <CartContext.Provider value={[cart, setCart, addProduct, eliminarProducto, emptyCart, isInCart,precioTotal,cantidadTotal]}>
+    <CartContext.Provider value={[
+    cart, 
+    setCart, 
+    addProduct, 
+    eliminarProducto,
+     emptyCart, 
+     isInCart,
+     precioTotal,
+     cantidadTotal]}>
       {children}
     </CartContext.Provider>
   );

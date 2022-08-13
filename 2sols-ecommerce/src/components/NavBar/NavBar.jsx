@@ -13,7 +13,7 @@ const NavBar =() => {
         <ul class="menu visible">
                 <NavLink className='pag' to='/'><li>Inicio</li></NavLink>
                 <NavLink className='pag'  to='/categoria/Motor'><li>Motor</li></NavLink>
-                <NavLink className='pag'  to='/categoria/Suspencion'><li>Suspencion</li></NavLink>
+                <NavLink className='pag'  to='/categoria/Suspension'><li>Suspensión</li></NavLink>
                 <NavLink className='pag'  to='/categoria/Eje'><li>Eje Delantero</li></NavLink>
             </ul>
             <Link to='/cart'>
@@ -24,4 +24,4 @@ const NavBar =() => {
   )
 }
 
-export default NavBar
+export default NavBar 
