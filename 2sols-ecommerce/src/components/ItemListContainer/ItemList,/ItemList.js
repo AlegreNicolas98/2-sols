@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
+import { gFetch } from '../Item/Item'
 
 import Spinners from '../Spinner/Spinner';  
-
 
 
 
@@ -14,23 +13,19 @@ const ItemList = () => {
    
         
     useEffect(() => {
-        const db = getFirestore()
         if (categoriaId) {
-            const queryCollection = collection(db, 'items')
-            const queryCollectionFilter = query(queryCollection, where('categoria', '==', categoriaId))
-            getDocs(queryCollectionFilter)
-            .then(resp => setProducts( resp.docs.map(prod => ( { id: prod.id, ...prod.data() } ) ) ) )
-            .catch( err => console.log(err) )
-            .finally(()=> setLoading(false))             
-        } else {           
-            const queryCollection = collection(db, 'items')
-            getDocs(queryCollection)
-            .then(resp => setProducts( resp.docs.map(prod => ( { id: prod.id, ...prod.data() } ) ) ) )
-            .catch( err => console.log(err) )
-            .finally(()=> setLoading(false))         
+            gFetch
+            .then(resp => setProducts(resp.filter(prod => prod.categoria === categoriaId)))
+            .catch(err => console.log(err))
+            .finally(() => setLoading(false))
+        } else {
+           gFetch
+        .then(resp => setProducts(resp))
+        .catch(err => console.log(err))
+        .finally(() => setLoading(false))  
         }
-    }, [ categoriaId ])
-
+      
+      }, [categoriaId])
 
 
       
@@ -64,7 +59,6 @@ const ItemList = () => {
                       </div> 
     )}
     </div>
-    
   )
 }
 

@@ -4,7 +4,8 @@ import { Link, useParams } from "react-router-dom";
 import { ItemCount } from "../ItemCount";
 import {useContext} from "react";
 import { CartContext } from "../CartContext/CartContext";
-import {doc,getDoc,getFirestore} from 'firebase/firestore'
+import {gFetch} from "../ItemListContainer/Item/Item";
+
 
 
 function ItemDetailContainer({}) {
@@ -15,13 +16,13 @@ function ItemDetailContainer({}) {
   const [cantidad,setCantidad] = useState()    
     
   useEffect(() => {
-    const db = getFirestore() 
-    const queryProduct = doc(db, 'items', id )
-    getDoc(queryProduct)
-    .then(resp => setProducts( { id: resp.id, ...resp.data() } ))
-    .catch( err => console.log(err) )
-    .finally(()=> setLoading(false))
-}, [id])
+    gFetch
+      .then((resp) =>
+        setProducts(resp.find((item) => item.id ===id))
+      )
+      .catch((rej) => console.log(rej))
+      .finally(() => setLoading(false));
+  }, [id]);
 
 
  const {nombre,precio,stock,categoria,foto} = productos;
