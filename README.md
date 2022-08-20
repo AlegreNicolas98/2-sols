@@ -2,8 +2,8 @@
 # Proyecto Final curso de React-JS en CoderHouse 
 <p>El proyecto se basa en una e-commerce el cual se encarga de promocionar repuestos automotor para todo tipo de marca automotriz.</p>
 
-Tech
-<h2>Venta de Practicas, uso varios recursos a lo largo del proyecto, para un mejor funcionamiento</h2>
+<h2>Tech</h2>
+<h3>Venta de Practicas, uso varios recursos a lo largo del proyecto, para un mejor funcionamiento</h3>
 
 <ul>
   <li>[Boostrap 5.1.3] - Se utilizo en conjunto con React-Bootstrap apra el estilizado del proyecto</li>
