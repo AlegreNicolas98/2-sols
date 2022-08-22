@@ -2,7 +2,6 @@ import React from 'react'
 import CardWidget from '../CardWidget/CardWidget'
 import Logo from '../img/Logo3SOLS.png'
 import './NavBar.css'
-import { Navbar, Nav } from "react-bootstrap"
 import { Link, NavLink } from 'react-router-dom';
 import { useCartContext } from '../../Context/CarritoContext'
 

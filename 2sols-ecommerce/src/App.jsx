@@ -12,6 +12,7 @@ import Section from './components/Estructura/Section/Section';
 import Footer from './components/Estructura/Footer/Footer';
 
 
+
 function App() {
   return (
     <CarritoContext> 
