@@ -4,10 +4,10 @@ import './Carousel.css'
 
 function CarouselSlide() {
       return (<div className='clase'>
-        <Carousel fade style={{"padding":"1rem","margin-left":"10%","width":"80%"}} >
+        <Carousel fade style={{"padding":"1rem","margin-left":"20%","width":"50%"}} >
           <Carousel.Item>
             <img
-              className="d-block w-100 h-30"
+              className="d-block w-100 h-30 img-carousel"
               src="http://www.3sols.com.ar/web/images/ypf-elaion.jpg"
               alt="First slide"
             />
@@ -18,19 +18,14 @@ function CarouselSlide() {
           </Carousel.Item>
           <Carousel.Item>
             <img
-              className="d-block w-100 h-30"
-              src="http://www.3sols.com.ar/web/images/VARGA.jpg"
+              className="d-block w-100 h-50 img-carousel"
+              src="http://www.3sols.com.ar/web/images/bannerml.jpg"
               alt="Second slide"
             />
-    
-            <Carousel.Caption  style={{"background":"rgba(0, 0, 0, 0.795)"}}>
-              <h3>Liquido de freno Varga</h3>
-              <p>Líquido de frenos DOT 3 y DOT4 dan soluciones para cualquier tipo de vehículo.</p>
-            </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img
-              className="d-block w-100 h-30"
+              className="d-block w-100 h-30 img-carousel"
               src="http://www.3sols.com.ar/web/images/freezetonefw.png"
               alt="Third slide"
             />

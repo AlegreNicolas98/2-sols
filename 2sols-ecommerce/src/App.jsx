@@ -18,7 +18,7 @@ function App() {
     <BrowserRouter>
     <div className="App">
       <NavBar />
-     
+      <CarouselSlide/>
       <Routes> 
         <Route index path='/' element={<ItemListContainer /> }/> 
         <Route path='/:categoria' element={<ItemListContainer /> }/> 
@@ -27,7 +27,7 @@ function App() {
         <Route path='/finalizarCompra' element={<FormBuy/>}/>
         <Route path='*' element={<Navigate to='/'/>}/>
       </Routes>
-      <Section/>
+       <Section/>
       <Footer/>
     </div>
     </BrowserRouter>

@@ -20,9 +20,11 @@
  }
 
  .btnBuy:hover{
+    background-color: green;
     color: white;
  }
 
  .btnVolverComprar:hover{
-    color: white;
+   background-color: green;
+   color: white;
  }

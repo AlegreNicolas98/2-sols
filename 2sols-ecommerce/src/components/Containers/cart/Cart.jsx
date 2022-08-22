@@ -28,19 +28,19 @@ const Cart = () => {
         {cart.map((products) => (
           //mostrar detalle del carrito
           <div className='productosCarrito' key={products.id}>
-            <img className='imgCarrito' src={products.imga} alt="imagenProd"></img>
+            <img className='imgCarrito' src={products.foto} alt="imagenProd"></img>
             <span> Cantidad: {products.quantity} </span>
             <span> Producto: {products.name}</span>
             <p>
-              <span> Costo: ${products.costo}.00 mxn c/u </span>
+              <span> Costo: ${products.costo} ARG </span>
               <button className='btnEliminar' onClick={() => removeProduct(products.id)}> Eliminar Producto</button>
             </p>
           </div>
 
         ))}
         <div className='ContendorComprar'>
-          <p className='precioTotal'> Precio total del carrito:  ${totalPrice()}. MXN </p>
-          <Link to='/FinalizarCompra' className='LinkComprar' ><button className='btnComprar'> Confirmar compra </button> </Link>
+          <p className='precioTotal'> Precio total del carrito:  ${totalPrice()} ARG. </p>
+          <Link to='/FinalizarCompra' className='LinkComprar' ><button className='btnComprar'> Confirmar compra </button></Link>
           <button className='btnVaciar' onClick={() => deleteCart()}> Vaciar Carrito</button>
         </div>
 

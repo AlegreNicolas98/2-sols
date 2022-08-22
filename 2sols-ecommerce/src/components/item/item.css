@@ -4,7 +4,7 @@
     width: 20vw;
     margin-left: 1vw;
     border-radius: 10px 10px 10px 10px;
-    margin-bottom: 2vh;
+    margin-bottom:2rem;
     justify-items: end;
     background-color: whitesmoke;
     
@@ -44,10 +44,15 @@
     margin-top:2vh;
     width: 10vw;
     height: 5vh;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     color: white;
     border-radius: 10px 10px 10px 10px;
     font-size: large;
     
     
+}
+
+.btn-ver:hover{
+    background-color: green;
+    font-weight: 600;
 }
